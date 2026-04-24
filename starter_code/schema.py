@@ -8,15 +8,18 @@ from datetime import datetime
 # Your task is to define the Unified Schema for all sources.
 # This is v1. Note: A breaking change is coming at 11:00 AM!
 
+
 class UnifiedDocument(BaseModel):
-    # TODO: Define the v1 schema. 
+    # TODO: Define the v1 schema.
     # Suggested fields: document_id, content, source_type, author, timestamp, metadata
-    
-    document_id: str
-    content: str
-    source_type: str # e.g., 'PDF', 'Video', 'HTML', 'CSV', 'Code'
+
+    document_id: str = Field(..., min_length=1)
+    content: str = Field(..., min_length=1)
+    source_type: str = Field(..., min_length=1)  # e.g., 'PDF', 'Video', 'HTML', 'CSV', 'Code'
     author: Optional[str] = "Unknown"
     timestamp: Optional[datetime] = None
-    
+    schema_version: str = Field(default="v1")
+    tags: List[str] = Field(default_factory=list)
+
     # You might want a dict for source-specific metadata
     source_metadata: dict = Field(default_factory=dict)

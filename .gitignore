@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+venv/
+processed_knowledge_base.json

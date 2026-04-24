@@ -1,1 +1,13 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=23706914&assignment_repo_type=AssignmentRepo)
+# Lab 2: Data Pipeline Multi-Modal Minefield
+
+## Student Information
+
+- Full name: Huỳnh Nhựt Huy
+- Email: huy40580@gmail.com
+- GitHub username: TesWy
+
+## Submission Notes
+
+- Team size: 1
+- This repository contains the completed implementation for the lab starter code.
+- Commit history is kept as-is.
