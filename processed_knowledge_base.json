@@ -1,0 +1,588 @@
+[
+  {
+    "document_id": "transcript-demo-001",
+    "content": "Chào mừng các bạn đến với buổi học hôm nay về Data Pipeline Engineering. Hôm nay chúng ta sẽ nói về việc xử lý dữ liệu phi cấu trúc, ví dụ như PDF và Video. Một vấn đề lớn là Semantic Drift. Các bạn có biết không? Dạ em có nghe qua, nhưng nó có liên quan gì đến Zillow không ạ? Có chứ! Zillow là ví dụ điển hình của việc mô hình bị hỏng do dữ liệu đầu vào thay đổi. Đừng để mô hình của bạn trở thành 'rác vào, rác ra'. À, một lưu ý nhỏ cho bài tập: Giá của sản phẩm VinAI Pro là năm trăm nghìn VND. Nhớ nhé, 500,000 VND. Bây giờ chúng ta hãy bắt đầu thực hành.",
+    "source_type": "Video",
+    "author": "Unknown",
+    "timestamp": null,
+    "schema_version": "v1",
+    "tags": [
+      "transcript",
+      "audio"
+    ],
+    "source_metadata": {
+      "original_file": "demo_transcript.txt",
+      "detected_price_vnd": 500000,
+      "cleaning_steps": [
+        "removed_timestamps",
+        "removed_noise_tokens",
+        "removed_speaker_labels"
+      ]
+    }
+  },
+  {
+    "document_id": "html-SP-001",
+    "content": "Catalog entry for VinAI Laptop Pro 14\" in category Laptop lists the product at 28500000.00 VND, with stock level 45 and rating 4.8/5.",
+    "source_type": "HTML",
+    "author": "VinShop Catalog",
+    "timestamp": null,
+    "schema_version": "v1",
+    "tags": [
+      "catalog",
+      "web"
+    ],
+    "source_metadata": {
+      "product_id": "SP-001",
+      "product_name": "VinAI Laptop Pro 14\"",
+      "category": "Laptop",
+      "price": 28500000.0,
+      "raw_price": "28,500,000 VND",
+      "stock_quantity": 45,
+      "rating": "4.8/5"
+    }
+  },
+  {
+    "document_id": "html-SP-002",
+    "content": "Catalog entry for Chuột không dây ErgoMax in category Phụ kiện lists the product at price unavailable (N/A), with stock level 0 and rating 4.2/5.",
+    "source_type": "HTML",
+    "author": "VinShop Catalog",
+    "timestamp": null,
+    "schema_version": "v1",
+    "tags": [
+      "catalog",
+      "web"
+    ],
+    "source_metadata": {
+      "product_id": "SP-002",
+      "product_name": "Chuột không dây ErgoMax",
+      "category": "Phụ kiện",
+      "price": null,
+      "raw_price": "N/A",
+      "stock_quantity": 0,
+      "rating": "4.2/5"
+    }
+  },
+  {
+    "document_id": "html-SP-003",
+    "content": "Catalog entry for Màn hình 4K 27\" ProDisplay in category Màn hình lists the product at price unavailable (Liên hệ), with stock level 12 and rating 4.9/5.",
+    "source_type": "HTML",
+    "author": "VinShop Catalog",
+    "timestamp": null,
+    "schema_version": "v1",
+    "tags": [
+      "catalog",
+      "web"
+    ],
+    "source_metadata": {
+      "product_id": "SP-003",
+      "product_name": "Màn hình 4K 27\" ProDisplay",
+      "category": "Màn hình",
+      "price": null,
+      "raw_price": "Liên hệ",
+      "stock_quantity": 12,
+      "rating": "4.9/5"
+    }
+  },
+  {
+    "document_id": "html-SP-004",
+    "content": "Catalog entry for Bàn phím cơ Blue Switch in category Phụ kiện lists the product at 1850000.00 VND, with stock level -5 and rating 4.5/5.",
+    "source_type": "HTML",
+    "author": "VinShop Catalog",
+    "timestamp": null,
+    "schema_version": "v1",
+    "tags": [
+      "catalog",
+      "web"
+    ],
+    "source_metadata": {
+      "product_id": "SP-004",
+      "product_name": "Bàn phím cơ Blue Switch",
+      "category": "Phụ kiện",
+      "price": 1850000.0,
+      "raw_price": "1,850,000 VND",
+      "stock_quantity": -5,
+      "rating": "4.5/5"
+    }
+  },
+  {
+    "document_id": "html-SP-005",
+    "content": "Catalog entry for Tai nghe chống ồn AI-Ear Pro in category Âm thanh lists the product at 3200000.00 VND, with stock level 28 and rating không có đánh giá.",
+    "source_type": "HTML",
+    "author": "VinShop Catalog",
+    "timestamp": null,
+    "schema_version": "v1",
+    "tags": [
+      "catalog",
+      "web"
+    ],
+    "source_metadata": {
+      "product_id": "SP-005",
+      "product_name": "Tai nghe chống ồn AI-Ear Pro",
+      "category": "Âm thanh",
+      "price": 3200000.0,
+      "raw_price": "3,200,000 VND",
+      "stock_quantity": 28,
+      "rating": "không có đánh giá"
+    }
+  },
+  {
+    "document_id": "csv-1",
+    "content": "Sales record for Laptop VinAI Pro 14 in category Electronics was recorded on 2026-01-15 with price 1200.00 USD.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-15T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 1,
+      "product_name": "Laptop VinAI Pro 14",
+      "category": "Electronics",
+      "price": 1200.0,
+      "raw_price": "$1200",
+      "currency": "USD",
+      "normalized_date_of_sale": "2026-01-15",
+      "seller_id": "S001",
+      "stock_quantity": 45
+    }
+  },
+  {
+    "document_id": "csv-2",
+    "content": "Sales record for Wireless Mouse in category Electronics was recorded on 2026-01-15 with price 250000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-15T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 2,
+      "product_name": "Wireless Mouse",
+      "category": "Electronics",
+      "price": 250000.0,
+      "raw_price": "250000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-15",
+      "seller_id": "S002",
+      "stock_quantity": 120
+    }
+  },
+  {
+    "document_id": "csv-3",
+    "content": "Sales record for USB-C Hub 7-Port in category Electronics was recorded on 2026-01-16 with price an unavailable price.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-16T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 3,
+      "product_name": "USB-C Hub 7-Port",
+      "category": "Electronics",
+      "price": null,
+      "raw_price": null,
+      "currency": "USD",
+      "normalized_date_of_sale": "2026-01-16",
+      "seller_id": "S003",
+      "stock_quantity": 0
+    }
+  },
+  {
+    "document_id": "csv-4",
+    "content": "Sales record for Mechanical Keyboard in category Electronics was recorded on 2026-01-17 with price 1500000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-17T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 4,
+      "product_name": "Mechanical Keyboard",
+      "category": "Electronics",
+      "price": 1500000.0,
+      "raw_price": "1500000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-17",
+      "seller_id": "S004",
+      "stock_quantity": 30
+    }
+  },
+  {
+    "document_id": "csv-5",
+    "content": "Sales record for HDMI Cable 2m in category Accessories was recorded on 2026-01-17 with price 5.00 USD.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-17T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 5,
+      "product_name": "HDMI Cable 2m",
+      "category": "Accessories",
+      "price": 5.0,
+      "raw_price": "five dollars",
+      "currency": "USD",
+      "normalized_date_of_sale": "2026-01-17",
+      "seller_id": "S005",
+      "stock_quantity": 200
+    }
+  },
+  {
+    "document_id": "csv-6",
+    "content": "Sales record for Monitor 27 inch 4K in category Electronics was recorded on 2026-01-18 with price 8500000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-18T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 6,
+      "product_name": "Monitor 27 inch 4K",
+      "category": "Electronics",
+      "price": 8500000.0,
+      "raw_price": "8500000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-18",
+      "seller_id": "S001",
+      "stock_quantity": 12
+    }
+  },
+  {
+    "document_id": "csv-7",
+    "content": "Sales record for Webcam HD 1080p in category Electronics was recorded on 2026-01-19 with price -350000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-19T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 7,
+      "product_name": "Webcam HD 1080p",
+      "category": "Electronics",
+      "price": -350000.0,
+      "raw_price": "-350000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-19",
+      "seller_id": "S002",
+      "stock_quantity": 55
+    }
+  },
+  {
+    "document_id": "csv-8",
+    "content": "Sales record for SSD 1TB NVMe in category Electronics was recorded on 2026-01-19 with price 2200000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-19T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 8,
+      "product_name": "SSD 1TB NVMe",
+      "category": "Electronics",
+      "price": 2200000.0,
+      "raw_price": "2200000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-19",
+      "seller_id": "S003",
+      "stock_quantity": 88
+    }
+  },
+  {
+    "document_id": "csv-9",
+    "content": "Sales record for Laptop Stand in category Accessories was recorded on 2026-01-20 with price 450000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-20T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 9,
+      "product_name": "Laptop Stand",
+      "category": "Accessories",
+      "price": 450000.0,
+      "raw_price": "450000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-20",
+      "seller_id": "S004",
+      "stock_quantity": null
+    }
+  },
+  {
+    "document_id": "csv-10",
+    "content": "Sales record for Bluetooth Speaker in category Electronics was recorded on 2026-01-20 with price 850000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-20T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 10,
+      "product_name": "Bluetooth Speaker",
+      "category": "Electronics",
+      "price": 850000.0,
+      "raw_price": "850000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-20",
+      "seller_id": "S005",
+      "stock_quantity": 40
+    }
+  },
+  {
+    "document_id": "csv-11",
+    "content": "Sales record for Gaming Headset in category Electronics was recorded on 2026-01-21 with price 1200000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-21T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 11,
+      "product_name": "Gaming Headset",
+      "category": "Electronics",
+      "price": 1200000.0,
+      "raw_price": "1200000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-21",
+      "seller_id": "S001",
+      "stock_quantity": 25
+    }
+  },
+  {
+    "document_id": "csv-12",
+    "content": "Sales record for Power Bank 20000mAh in category Accessories was recorded on 2026-01-21 with price 600000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-21T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 12,
+      "product_name": "Power Bank 20000mAh",
+      "category": "Accessories",
+      "price": 600000.0,
+      "raw_price": "600000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-21",
+      "seller_id": "S002",
+      "stock_quantity": 70
+    }
+  },
+  {
+    "document_id": "csv-13",
+    "content": "Sales record for Smart Watch VinHealth in category Wearables was recorded on 2026-01-22 with price an unavailable price.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-22T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 13,
+      "product_name": "Smart Watch VinHealth",
+      "category": "Wearables",
+      "price": null,
+      "raw_price": "Liên hệ",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-22",
+      "seller_id": "S003",
+      "stock_quantity": 15
+    }
+  },
+  {
+    "document_id": "csv-14",
+    "content": "Sales record for Phone Case Premium in category Accessories was recorded on 2026-01-22 with price 150000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-22T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 14,
+      "product_name": "Phone Case Premium",
+      "category": "Accessories",
+      "price": 150000.0,
+      "raw_price": "150000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-22",
+      "seller_id": "S004",
+      "stock_quantity": 300
+    }
+  },
+  {
+    "document_id": "csv-15",
+    "content": "Sales record for Laptop VinAI Pro 14 in category Electronics was recorded on 2026-01-22 with price 1200.00 USD.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-22T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 15,
+      "product_name": "Laptop VinAI Pro 14",
+      "category": "Electronics",
+      "price": 1200.0,
+      "raw_price": "1200",
+      "currency": "USD",
+      "normalized_date_of_sale": "2026-01-22",
+      "seller_id": "S001",
+      "stock_quantity": 45
+    }
+  },
+  {
+    "document_id": "csv-16",
+    "content": "Sales record for Tablet 10 inch in category Electronics was recorded on 2026-01-23 with price 5500000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-23T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 16,
+      "product_name": "Tablet 10 inch",
+      "category": "Electronics",
+      "price": 5500000.0,
+      "raw_price": "5500000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-23",
+      "seller_id": "S005",
+      "stock_quantity": 20
+    }
+  },
+  {
+    "document_id": "csv-17",
+    "content": "Sales record for Earbuds TWS Pro in category Electronics was recorded on 2026-01-23 with price 750000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-23T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 17,
+      "product_name": "Earbuds TWS Pro",
+      "category": "Electronics",
+      "price": 750000.0,
+      "raw_price": "750000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-23",
+      "seller_id": "S001",
+      "stock_quantity": 60
+    }
+  },
+  {
+    "document_id": "csv-18",
+    "content": "Sales record for Screen Protector in category Accessories was recorded on 2026-01-24 with price 85000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-24T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 18,
+      "product_name": "Screen Protector",
+      "category": "Accessories",
+      "price": 85000.0,
+      "raw_price": "85000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-24",
+      "seller_id": "S002",
+      "stock_quantity": 500
+    }
+  },
+  {
+    "document_id": "csv-19",
+    "content": "Sales record for External HDD 2TB in category Electronics was recorded on 2026-01-24 with price 1800000.00 VND.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-24T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 19,
+      "product_name": "External HDD 2TB",
+      "category": "Electronics",
+      "price": 1800000.0,
+      "raw_price": "1800000",
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-24",
+      "seller_id": "S003",
+      "stock_quantity": 35
+    }
+  },
+  {
+    "document_id": "csv-20",
+    "content": "Sales record for RAM DDR5 16GB in category Electronics was recorded on 2026-01-25 with price an unavailable price.",
+    "source_type": "CSV",
+    "author": "Unknown",
+    "timestamp": "2026-01-25T00:00:00",
+    "schema_version": "v1",
+    "tags": [
+      "sales",
+      "structured-data"
+    ],
+    "source_metadata": {
+      "record_id": 20,
+      "product_name": "RAM DDR5 16GB",
+      "category": "Electronics",
+      "price": null,
+      "raw_price": null,
+      "currency": "VND",
+      "normalized_date_of_sale": "2026-01-25",
+      "seller_id": "S004",
+      "stock_quantity": 42
+    }
+  }
+]
